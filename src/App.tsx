@@ -38,11 +38,11 @@ const navItems = [
 ]
 
 const velocity = [
-  { day: 'Mon', fixed: 4, reviewed: 7 },
-  { day: 'Tue', fixed: 7, reviewed: 9 },
-  { day: 'Wed', fixed: 8, reviewed: 11 },
-  { day: 'Thu', fixed: 12, reviewed: 14 },
-  { day: 'Fri', fixed: 15, reviewed: 17 },
+  { phase: 'Intake', fixed: 4, reviewed: 7 },
+  { phase: 'Bugs', fixed: 7, reviewed: 9 },
+  { phase: 'UX', fixed: 8, reviewed: 11 },
+  { phase: 'API', fixed: 12, reviewed: 14 },
+  { phase: 'Release', fixed: 15, reviewed: 17 },
 ]
 
 const performance = [
@@ -53,10 +53,10 @@ const performance = [
 ]
 
 const features = [
-  { name: 'Customer settings page', type: 'New page', status: 'Ready', owner: 'Frontend + API' },
-  { name: 'Subscription usage panel', type: 'Enhancement', status: 'In QA', owner: 'Full stack' },
+  { name: 'Inconsistent app behaviors', type: 'Bug fix', status: 'Ready', owner: 'Full stack' },
+  { name: 'Error states and edge cases', type: 'Stability', status: 'In QA', owner: 'React + API' },
   { name: 'Admin search filters', type: 'UX fix', status: 'Next', owner: 'Frontend' },
-  { name: 'Webhook retry logs', type: 'Backend', status: 'Scoped', owner: 'API' },
+  { name: 'Sequelize query review', type: 'Backend', status: 'Scoped', owner: 'Node + PostgreSQL' },
 ]
 
 const auditNotes = {
@@ -118,8 +118,8 @@ export default function App() {
 
         <div className="stack-card">
           <span>Fits this Upwork brief</span>
-          <strong>React, Angular, Node, Laravel, Django, REST APIs</strong>
-          <p>Built to show how I would improve an existing SaaS app without rewriting the product or slowing the team down.</p>
+          <strong>React, Node.js, Sequelize, PostgreSQL, REST APIs</strong>
+          <p>Built to show how I would stabilize an existing app, clean risky paths, and prepare a reliable V1 release.</p>
         </div>
       </aside>
 
@@ -127,7 +127,7 @@ export default function App() {
         <header className="topbar">
           <div>
             <h1>Existing SaaS codebase, upgraded safely.</h1>
-            <p>Audit the current structure, repair UI responsiveness, add features, clean code paths, and hand off small tested releases.</p>
+            <p>Audit the current structure, fix inconsistent behavior, improve error handling, tune backend risk areas, and hand off tested release notes.</p>
           </div>
           <div className="topbar-actions">
             <button className="ghost-button"><ShieldCheck size={16} /> Low-risk PRs</button>
@@ -136,9 +136,9 @@ export default function App() {
         </header>
 
         <section className="metrics-grid">
-          <MetricCard label="First pass audit" value="48 hrs" detail="routes, UI, API, risk map" icon={ListChecks} />
+          <MetricCard label="Codebase audit" value="Risk map" detail="routes, UI, API, data flow" icon={ListChecks} />
           <MetricCard label="Responsive targets" value="3 sizes" detail="desktop, tablet, mobile" icon={MonitorSmartphone} />
-          <MetricCard label="Feature cadence" value="1-2 / wk" detail="small releases with notes" icon={PackageCheck} />
+          <MetricCard label="Release cadence" value="Small PRs" detail="focused fixes with notes" icon={PackageCheck} />
           <MetricCard label="Quality gate" value="QA notes" detail="screenshots before merge" icon={Gauge} />
         </section>
 
@@ -171,10 +171,10 @@ export default function App() {
           <section className="panel velocity-panel">
             <div className="panel-header">
               <div>
-                <span className="section-label">Delivery rhythm</span>
+                <span className="section-label">Stabilization flow</span>
                 <h2>Small fixes, visible progress</h2>
               </div>
-              <span className="status-pill good">Weekly release-ready</span>
+              <span className="status-pill good">Release-ready</span>
             </div>
             <ResponsiveContainer width="100%" height={220}>
               <AreaChart data={velocity}>
@@ -185,7 +185,7 @@ export default function App() {
                   </linearGradient>
                 </defs>
                 <CartesianGrid stroke="#d8e1ea" vertical={false} />
-                <XAxis dataKey="day" tickLine={false} axisLine={false} />
+                <XAxis dataKey="phase" tickLine={false} axisLine={false} />
                 <YAxis tickLine={false} axisLine={false} width={34} />
                 <Tooltip />
                 <Area type="monotone" dataKey="reviewed" stroke="#64748b" fill="transparent" strokeWidth={2} />
@@ -212,7 +212,7 @@ export default function App() {
                   <CircleDot size={16} />
                   <span>
                     <strong>{feature.name}</strong>
-                    <small>{feature.type} · {feature.owner}</small>
+                    <small>{feature.type} - {feature.owner}</small>
                   </span>
                   <em>{feature.status}</em>
                 </button>
@@ -230,7 +230,7 @@ export default function App() {
             </div>
             <div className="service-list">
               <div><Code2 size={18} /><strong>Frontend</strong><span>React, Vue, Angular, jQuery cleanup</span></div>
-              <div><Database size={18} /><strong>Backend</strong><span>Node.js, Laravel, Django APIs</span></div>
+              <div><Database size={18} /><strong>Backend</strong><span>Node.js, Sequelize, PostgreSQL APIs</span></div>
               <div><Activity size={18} /><strong>Performance</strong><span>Bundle, query, and render checks</span></div>
               <div><Sparkles size={18} /><strong>UX polish</strong><span>Modern spacing, states, and flows</span></div>
             </div>
@@ -250,7 +250,7 @@ export default function App() {
           <GitPullRequestArrow size={20} />
           <div>
             <strong>How I would start your project</strong>
-            <p>Clone the app, run it locally, document current routes and API calls, fix one visible UI issue first, then continue with feature PRs that include screenshots, notes, and clear rollback points.</p>
+            <p>Clone the app, run it locally, document current routes and API calls, fix one visible behavior issue first, then continue with small PRs that include screenshots, notes, and clear rollback points.</p>
           </div>
         </section>
       </section>
