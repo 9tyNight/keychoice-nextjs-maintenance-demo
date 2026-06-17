@@ -1,25 +1,27 @@
-# SaaS Codebase Upgrade Demo
+# Next.js Maintenance and Figma Implementation Demo
 
-Interactive proposal demo for improving an existing SaaS application: UI/UX cleanup, responsive fixes, feature delivery, API/back-end readiness, performance triage, and a low-risk codebase handoff plan.
+Interactive proposal demo for maintaining an existing React/Next.js website environment, converting approved Figma designs into responsive pages, and shipping clean GitHub pull requests.
 
 ## Why this demo exists
 
-This is a fast proof-of-execution for a client who already has a SaaS product and needs a reliable full-stack developer to add features, improve UI quality, and work safely inside the current codebase.
+This is a focused proof-of-execution for a client with existing websites across multiple brands. It shows how I approach the work before writing production code: map the current codebase, identify reusable page patterns, implement Figma designs carefully, test responsive behavior, and leave reviewable handoff notes.
 
 ## What it demonstrates
 
-- Modern SaaS dashboard UI with responsive layout
-- Feature queue and implementation status for existing projects
-- UI issue audit, accessibility/responsiveness checks, and performance targets
-- Back-end/API readiness notes for Node.js, Laravel, Django, or similar stacks
-- Clean component structure suitable for incremental delivery
+- Next.js App Router project structure
+- Responsive dashboard-style UI with desktop, tablet, and mobile behavior
+- Figma-to-production implementation plan
+- Reusable page/template thinking for two-brand website environments
+- Maintenance workflow for existing codebases, GitHub PRs, QA notes, and rollback points
+- Awareness of adjacent stack pieces: Node/Express, Firebase/Firestore, AWS S3, CloudFront, Lambda, API Gateway, and Route53
 
-## Practical delivery plan
+## Practical delivery approach
 
-- Day 1-2: read the codebase, map routes/components/API calls, identify risky areas
-- Day 3-5: fix responsive UI issues and ship one visible improvement
-- Week 2: add priority pages/features with tests and clean pull requests
-- Ongoing: optimize performance, remove dead code, improve reusable components, document changes
+- Read the current routes, shared components, API calls, Firebase usage, and deployment flow
+- Implement approved Figma pages as reusable responsive sections
+- Keep brand-specific styling and content separate from shared page structure
+- Ship small pull requests with screenshots and QA notes
+- Check performance, SEO metadata, accessibility basics, and cross-browser behavior before handoff
 
 ## Local development
 

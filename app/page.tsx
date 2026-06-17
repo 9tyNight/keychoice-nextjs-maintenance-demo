@@ -1,3 +1,5 @@
+'use client'
+
 import { useMemo, useState } from 'react'
 import {
   Activity,
@@ -31,44 +33,44 @@ import {
 
 const navItems = [
   { label: 'Audit', icon: LayoutDashboard },
-  { label: 'UI fixes', icon: MonitorSmartphone },
-  { label: 'Features', icon: PackageCheck },
-  { label: 'Backend', icon: Database },
+  { label: 'Figma', icon: MonitorSmartphone },
+  { label: 'Pages', icon: PackageCheck },
+  { label: 'Stack', icon: Database },
   { label: 'Handoff', icon: GitPullRequestArrow },
 ]
 
 const velocity = [
-  { phase: 'Intake', fixed: 4, reviewed: 7 },
-  { phase: 'Bugs', fixed: 7, reviewed: 9 },
-  { phase: 'UX', fixed: 8, reviewed: 11 },
-  { phase: 'API', fixed: 12, reviewed: 14 },
-  { phase: 'Release', fixed: 15, reviewed: 17 },
+  { phase: 'Audit', shipped: 4, reviewed: 7 },
+  { phase: 'Figma', shipped: 7, reviewed: 10 },
+  { phase: 'Pages', shipped: 10, reviewed: 12 },
+  { phase: 'QA', shipped: 13, reviewed: 15 },
+  { phase: 'Release', shipped: 16, reviewed: 18 },
 ]
 
 const performance = [
-  { name: 'Routes', score: 91 },
-  { name: 'Forms', score: 88 },
-  { name: 'Tables', score: 84 },
-  { name: 'Mobile', score: 93 },
+  { name: 'Desktop', score: 95 },
+  { name: 'Tablet', score: 92 },
+  { name: 'Mobile', score: 94 },
+  { name: 'SEO', score: 90 },
 ]
 
 const features = [
-  { name: 'Inconsistent app behaviors', type: 'Bug fix', status: 'Ready', owner: 'Full stack' },
-  { name: 'Error states and edge cases', type: 'Stability', status: 'In QA', owner: 'React + API' },
-  { name: 'Admin search filters', type: 'UX fix', status: 'Next', owner: 'Frontend' },
-  { name: 'Sequelize query review', type: 'Backend', status: 'Scoped', owner: 'Node + PostgreSQL' },
+  { name: 'Two-brand page template', type: 'Reusable layout', status: 'Ready', owner: 'Next.js' },
+  { name: 'Figma spacing system', type: 'UI consistency', status: 'In QA', owner: 'React + CSS' },
+  { name: 'Content update workflow', type: 'Maintenance', status: 'Next', owner: 'GitHub PRs' },
+  { name: 'Forms and integrations check', type: 'Support', status: 'Scoped', owner: 'Node + AWS' },
 ]
 
 const auditNotes = {
   ui: [
-    'Normalize button sizes, table density, and form spacing across existing pages.',
-    'Fix mobile sidebar collapse, overflowing cards, and chart labels below 768px.',
-    'Create reusable page shell components so new features match the current product.',
+    'Translate approved Figma frames into responsive Next.js sections with matching spacing, typography, and component states.',
+    'Reuse one page framework across both brands while preserving brand colors, content tone, and page-specific calls to action.',
+    'Check desktop, tablet, and mobile breakpoints before handoff so layouts do not drift after content updates.',
   ],
   code: [
-    'Map routes, API clients, auth guards, state stores, and shared component boundaries first.',
-    'Ship changes as small pull requests with screenshots and regression notes.',
-    'Replace brittle one-off UI fixes with reusable components only where it lowers risk.',
+    'Map routes, shared components, Firebase reads, API calls, AWS touchpoints, and deployment flow before changing production paths.',
+    'Ship small GitHub pull requests with screenshots, QA notes, and clear review scope for internal stakeholders.',
+    'Create reusable templates only where they reduce repeated work across similar pages and future content changes.',
   ],
 }
 
@@ -102,8 +104,8 @@ export default function App() {
         <div className="brand">
           <div className="brand-mark"><PanelsTopLeft size={20} /></div>
           <div>
-            <strong>SaaS Upgrade Desk</strong>
-            <span>Proposal demo for existing apps</span>
+            <strong>Next.js Maintenance Desk</strong>
+            <span>Figma-to-production proposal demo</span>
           </div>
         </div>
 
@@ -117,29 +119,29 @@ export default function App() {
         </nav>
 
         <div className="stack-card">
-          <span>Fits this Upwork brief</span>
-          <strong>React, Node.js, Sequelize, PostgreSQL, REST APIs</strong>
-          <p>Built to show how I would stabilize an existing app, clean risky paths, and prepare a reliable V1 release.</p>
+          <span>Built for this Upwork brief</span>
+          <strong>React, Next.js, Node/Express, Firebase, AWS, GitHub</strong>
+          <p>A compact demo of how I would maintain an existing site, implement Figma pages, and keep two brands consistent.</p>
         </div>
       </aside>
 
       <section className="workspace">
         <header className="topbar">
           <div>
-            <h1>Existing SaaS codebase, upgraded safely.</h1>
-            <p>Audit the current structure, fix inconsistent behavior, improve error handling, tune backend risk areas, and hand off tested release notes.</p>
+            <h1>Existing Next.js websites, upgraded without drama.</h1>
+            <p>Audit the current codebase, convert approved Figma designs into reusable responsive pages, update content carefully, and hand off clean GitHub pull requests.</p>
           </div>
           <div className="topbar-actions">
-            <button className="ghost-button"><ShieldCheck size={16} /> Low-risk PRs</button>
-            <button className="primary-button">Review plan <ArrowRight size={16} /></button>
+            <button className="ghost-button"><ShieldCheck size={16} /> Reviewable PRs</button>
+            <button className="primary-button">Implementation plan <ArrowRight size={16} /></button>
           </div>
         </header>
 
         <section className="metrics-grid">
-          <MetricCard label="Codebase audit" value="Risk map" detail="routes, UI, API, data flow" icon={ListChecks} />
-          <MetricCard label="Responsive targets" value="3 sizes" detail="desktop, tablet, mobile" icon={MonitorSmartphone} />
-          <MetricCard label="Release cadence" value="Small PRs" detail="focused fixes with notes" icon={PackageCheck} />
-          <MetricCard label="Quality gate" value="QA notes" detail="screenshots before merge" icon={Gauge} />
+          <MetricCard label="Codebase audit" value="Route map" detail="pages, data, shared UI" icon={ListChecks} />
+          <MetricCard label="Figma handoff" value="Pixel pass" detail="spacing, type, states" icon={MonitorSmartphone} />
+          <MetricCard label="Two brands" value="Templates" detail="shared layouts, distinct content" icon={PackageCheck} />
+          <MetricCard label="Quality gate" value="QA proof" detail="screenshots and notes" icon={Gauge} />
         </section>
 
         <section className="content-grid">
@@ -147,14 +149,14 @@ export default function App() {
             <div className="panel-header">
               <div>
                 <span className="section-label">Codebase intake</span>
-                <h2>{activeAudit === 'ui' ? 'UI/UX improvement pass' : 'Existing code review pass'}</h2>
+                <h2>{activeAudit === 'ui' ? 'Figma implementation pass' : 'Existing code review pass'}</h2>
               </div>
               <button className="icon-button" onClick={runReview} aria-label="Switch review focus">
                 <Wand2 size={17} />
               </button>
             </div>
             <div className="prompt-tabs">
-              <button className={activeAudit === 'ui' ? 'selected' : ''} onClick={() => setActiveAudit('ui')}>UI fixes</button>
+              <button className={activeAudit === 'ui' ? 'selected' : ''} onClick={() => setActiveAudit('ui')}>Figma build</button>
               <button className={activeAudit === 'code' ? 'selected' : ''} onClick={() => setActiveAudit('code')}>Code map</button>
             </div>
             <div className="audit-output">
@@ -172,9 +174,9 @@ export default function App() {
             <div className="panel-header">
               <div>
                 <span className="section-label">Stabilization flow</span>
-                <h2>Small fixes, visible progress</h2>
+                <h2>Structured work, visible progress</h2>
               </div>
-              <span className="status-pill good">Release-ready</span>
+              <span className="status-pill good">Review-ready</span>
             </div>
             <ResponsiveContainer width="100%" height={220}>
               <AreaChart data={velocity}>
@@ -189,7 +191,7 @@ export default function App() {
                 <YAxis tickLine={false} axisLine={false} width={34} />
                 <Tooltip />
                 <Area type="monotone" dataKey="reviewed" stroke="#64748b" fill="transparent" strokeWidth={2} />
-                <Area type="monotone" dataKey="fixed" stroke="#2563eb" fill="url(#fixed)" strokeWidth={3} />
+                <Area type="monotone" dataKey="shipped" stroke="#2563eb" fill="url(#fixed)" strokeWidth={3} />
               </AreaChart>
             </ResponsiveContainer>
           </section>
@@ -198,7 +200,7 @@ export default function App() {
             <div className="panel-header">
               <div>
                 <span className="section-label">Feature queue</span>
-                <h2>Pages and fixes I can ship</h2>
+                <h2>Pages and maintenance I can ship</h2>
               </div>
               <span className="status-pill">4 scoped items</span>
             </div>
@@ -224,15 +226,15 @@ export default function App() {
             <div className="panel-header">
               <div>
                 <span className="section-label">Backend readiness</span>
-                <h2>API, data, and performance</h2>
+                <h2>Site stack awareness</h2>
               </div>
               <span className="status-pill good">Scoped</span>
             </div>
             <div className="service-list">
-              <div><Code2 size={18} /><strong>Frontend</strong><span>React, Vue, Angular, jQuery cleanup</span></div>
-              <div><Database size={18} /><strong>Backend</strong><span>Node.js, Sequelize, PostgreSQL APIs</span></div>
-              <div><Activity size={18} /><strong>Performance</strong><span>Bundle, query, and render checks</span></div>
-              <div><Sparkles size={18} /><strong>UX polish</strong><span>Modern spacing, states, and flows</span></div>
+              <div><Code2 size={18} /><strong>Frontend</strong><span>React, Next.js, responsive components</span></div>
+              <div><Database size={18} /><strong>Data</strong><span>Firebase, Firestore, API contracts</span></div>
+              <div><Activity size={18} /><strong>AWS</strong><span>S3, CloudFront, Lambda awareness</span></div>
+              <div><Sparkles size={18} /><strong>SEO + UX</strong><span>Metadata, speed, polished journeys</span></div>
             </div>
             <ResponsiveContainer width="100%" height={154}>
               <BarChart data={performance}>
@@ -250,7 +252,7 @@ export default function App() {
           <GitPullRequestArrow size={20} />
           <div>
             <strong>How I would start your project</strong>
-            <p>Clone the app, run it locally, document current routes and API calls, fix one visible behavior issue first, then continue with small PRs that include screenshots, notes, and clear rollback points.</p>
+            <p>Clone the repositories, run the sites locally, document routes and shared components, implement the first approved Figma page, then continue with small PRs that include screenshots, notes, and clear rollback points.</p>
           </div>
         </section>
       </section>
